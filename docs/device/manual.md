@@ -28,8 +28,9 @@ field note wins (marked ⚠️).
 | Power input | 4.2 V |
 
 ⚠️ **Field note:** the bench measures two FH301217 50 mAh pouch cells
-(one per half) plus ~2200 mAh module packs carrying the real runtime
-(see [Power](power.md)). "45mA" is consistent with the buffer cells.
+(one per half) plus ~700–1000 mAh module packs carrying the real runtime
+(labeled cells: Tune 1000 mAh, Track 700 mAh — see [Exhibits](exhibits.md)
+and [Power](power.md)). "45mA" is consistent with the buffer cells.
 
 ## Module indicator LEDs (official table)
 
