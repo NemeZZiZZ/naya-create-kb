@@ -4,6 +4,25 @@ Consolidated from FCC filings (grantee **`2BQ4V`**: `0825CRL` left,
 `0825CRR` right, `0825DG` dongle), USB/BLE probing, and the NayaCore
 binary. Product family: halves `NAYA-800-1`, dongle `NAYA-100-1`.
 
+## FCC filings (official source)
+
+- **Official:** FCC OET Equipment Authorization search
+  ([fcc.gov/oet/ea/fccid](https://www.fcc.gov/oet/ea/fccid)) —
+  search Grantee Code **`2BQ4V`**. All PDFs below (test reports,
+  internal/external photos, label, manuals, antenna specs, RF
+  exposure) live there as exhibits.
+- Mirror index (convenience, same exhibits):
+  [0825CRL](https://fccid.io/2BQ4V0825CRL) ·
+  [0825CRR](https://fccid.io/2BQ4V0825CRR) ·
+  [0825DG](https://fccid.io/2BQ4V0825DG).
+- Grant facts: issued **2025-08-29**, test firm BTL Inc (Dongguan),
+  conducted output ~0.007 W (2.4 GHz DTS, Part 15C). Schematics, block
+  diagram and operational description are **long-term confidential**
+  (metadata only) — hence no public schematics.
+- All photos on this page are FCC exhibits (internal/external photos),
+  vendored here at reduced size; full-resolution originals are in the
+  filings above.
+
 ## Halves
 
 | Item | Value |
@@ -22,6 +41,21 @@ binary. Product family: halves `NAYA-800-1`, dongle `NAYA-100-1`.
 Each half is an independent BLE peripheral (HID over GATT + custom
 `0x1234` service); the host (NayaCore) merges them. No radio link
 between halves.
+
+![Half switch plate with Kailh low-profile switches and module bay ring frames (FCC exhibit)](../assets/fcc/half-matrix.jpg)
+
+*Switch plate: red Kailh low-profile switches, circular module-bay
+frames with dock magnets (FCC internal photos).*
+
+![Half mainboard V13, component side (FCC exhibit)](../assets/fcc/mainboard-v13.jpg)
+
+*Full mainboard (`Create_L_KB_…_V13` silkscreen) — switch cutouts,
+USB-C tail at right, central MCU zone (FCC internal photos).*
+
+![nRF52811 SoC close-up, marking N52811 / 2301ME (FCC exhibit)](../assets/fcc/nrf52811.jpg)
+
+*SoC die marking confirms **nRF52811** (date code 2301 = Jan 2023);
+32 MHz crystal alongside (FCC internal photos).*
 
 ### Biggest open hardware question
 
@@ -65,11 +99,22 @@ Gesture vocabulary per module (from NayaCore strings):
 - **Query (UNRELEASED)** — no input gestures at all → almost certainly
   output-only (display?).
 
+![Module ring PCB with Qi coil and close-ups (FCC exhibit)](../assets/fcc/module-ring-pcb.jpg)
+
+*Module ring PCB: Qi receiver coil, charge/control electronics and
+close-ups of the module-side components (FCC internal photos).*
+
 ## Dongle (NAYA-100-1, “Speedlink”)
 
 nRF52840 (`CKAAD0 2301ME`), board `BOK17_Dongle 20241106 V01`, USB-A,
 Boen RF0401A antenna, SWDIO/TP1/TP2 broken out. Plain Bluetooth 5.4,
 not proprietary 2.4 GHz.
+
+![Dongle PCB: USB-A, labeled SWDIO/SWDCLK/RST pads, PCB antenna (FCC exhibit)](../assets/fcc/dongle-swd.jpg)
+
+*Dongle close-up — note the labeled **SWDIO/SWDCLK** pads next to the
+USB connector: the custom-firmware entry in hardware (FCC internal
+photos).*
 
 ## Supply chain
 

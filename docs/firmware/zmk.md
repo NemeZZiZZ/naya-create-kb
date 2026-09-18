@@ -13,7 +13,10 @@ so a future porter starts from facts, not guesses.
   board definition + driver exercise on the same nRF Connect SDK
   generation, not a foreign-platform bring-up.
 - **SWD pads are labeled** on the PCB — the custom-firmware entry
-  exists in hardware.
+  exists in hardware (see the dongle close-up in
+  [Hardware](../device/hardware.md#dongle-naya-100-1-speedlink)).
+
+![Dongle PCB with labeled SWDIO/SWDCLK pads (FCC exhibit)](../assets/fcc/dongle-swd.jpg)
 - **Stock images are carved** and inventoried (see
   [Version inventory](versions.md)) — there is a return path via SWD.
 - **Full behavior reference:** the entire wire protocol (keymap

@@ -8,6 +8,12 @@ Power flows **both ways** over the module pogo pins (user-confirmed):
 The 50 mAh base cells (FH301217) are **hot-swap buffers** — they keep a
 half alive while you swap modules, they are not the runtime source.
 
+![Module teardown: FH301217 50 mAh buffer cell, Tune module, opened module with blue pack + Qi coil (FCC exhibit)](../assets/fcc/module-teardown.jpg)
+
+*FCC teardown sheet — top-middle cell reads `FH301217 3.7V 50mAh
+0.185Wh` (the buffer); bottom row shows an opened module with the big
+blue pack and the copper Qi coil (FCC internal photos).*
+
 ## Consequences (all verified live)
 
 - **Discharge tests:** unplugged + docked drains the big module packs
