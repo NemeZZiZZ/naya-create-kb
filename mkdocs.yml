@@ -55,6 +55,7 @@ nav:
   - Firmware:
       - Bootloader & MCUBoot: firmware/bootloader.md
       - Version inventory: firmware/versions.md
+      - ZMK port feasibility: firmware/zmk.md
       - Signing keys: firmware/signing.md
   - Host software:
       - NayaFlow / NayaCore: software/nayaflow.md
@@ -69,4 +70,5 @@ nav:
       - Python recipes: toolkit/python.md
       - Web/JS recipes: toolkit/javascript.md
   - Recovery cookbook: recovery.md
+  - Known problems & FAQ: troubleshooting.md
   - Glossary: glossary.md
