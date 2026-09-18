@@ -20,9 +20,17 @@ produced ZERO ED frames, only `fe/100a` (timeouts) + reads
 
 From the stock profile header + UI: tapping term **200 ms**
 (`c8 00` u16LE, also embedded twice in every T10 record),
-tap-hold flavour 0, transparent-as-default 1. UI-only “Interrupt
-Flavor” presets (Balanced/Fast/Deliberate ≈ 200/150/280 ms) have no
-wire counterpart — they re-emit the same T10 terms.
+tap-hold flavour 0, transparent-as-default 1.
+
+NayaFlow v1.25.1 screenshot ground truth (2026-09-18): **Interrupt
+Flavor** is a 4-way policy dropdown — Balanced / Hold–Preferred /
+Tap–Preferred / Tap–Unless Interrupted (“how a hold-tap key resolves
+when interrupted”) — and **Tapping Term is a separate slider**
+(200 ms default, 10–1000 ms range). An earlier note claiming flavor
+presets “Balanced/Fast/Deliberate ≈ 200/150/280 ms” was wrong and is
+retracted (that conflation never existed in the NayaFlow UI). Flavor's
+wire encoding is **OPEN** — candidate: T10 record bits; a flavor-diff
+(keymap dumps at each flavor setting) is folded into the T10 live spike.
 
 ## LED-adjacent settings
 
