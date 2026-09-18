@@ -110,11 +110,16 @@ nRF52840 (`CKAAD0 2301ME`), board `BOK17_Dongle 20241106 V01`, USB-A,
 Boen RF0401A antenna, SWDIO/TP1/TP2 broken out. Plain Bluetooth 5.4,
 not proprietary 2.4 GHz.
 
-![Dongle PCB: USB-A, labeled SWDIO/SWDCLK/RST pads, PCB antenna (FCC exhibit)](../assets/fcc/dongle-swd.jpg)
+![Dongle front: USB-A plug, BOK17_Dongle 20241106 V01 silkscreen, LED (FCC exhibit)](../assets/fcc/dongle-front.jpg)
 
-*Dongle close-up — note the labeled **SWDIO/SWDCLK** pads next to the
-USB connector: the custom-firmware entry in hardware (FCC internal
-photos).*
+*Dongle front — bare-board USB-A plug, status LED and crystal
+(FCC internal photos).*
+
+![Dongle back: nRF52840 with labeled SWDIO/TP1/TP2 test points (FCC exhibit)](../assets/fcc/dongle-back.jpg)
+
+*Dongle back — nRF52840 (`CKAAD0 2301ME`) with labeled **SWDIO** and
+**TP1/TP2** test points: the custom-firmware entry in hardware
+(FCC internal photos).*
 
 ## Supply chain
 

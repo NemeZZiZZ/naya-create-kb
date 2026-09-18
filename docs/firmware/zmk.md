@@ -16,7 +16,7 @@ so a future porter starts from facts, not guesses.
   exists in hardware (see the dongle close-up in
   [Hardware](../device/hardware.md#dongle-naya-100-1-speedlink)).
 
-![Dongle PCB with labeled SWDIO/SWDCLK pads (FCC exhibit)](../assets/fcc/dongle-swd.jpg)
+![Dongle back: nRF52840 with labeled SWDIO/TP1/TP2 test points (FCC exhibit)](../assets/fcc/dongle-back.jpg)
 - **Stock images are carved** and inventoried (see
   [Version inventory](versions.md)) — there is a return path via SWD.
 - **Full behavior reference:** the entire wire protocol (keymap
