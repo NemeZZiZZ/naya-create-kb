@@ -47,8 +47,8 @@ The small LEDs on the modules report charge/connect state:
 
 ## Sleep defaults (official)
 
-- **Sleep:** 1.5 min idle (configurable; see `ee/1001`)
-- **Deep sleep:** 10 min (configurable; see `ee/1002`)
+- **Sleep:** 1.5 min idle (configurable; see `fe/100a`)
+- **Deep sleep:** 10 min (configurable; see `fe/100a`)
 
 ## Pairing and output modes
 

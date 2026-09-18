@@ -29,7 +29,7 @@ binary. Product family: halves `NAYA-800-1`, dongle `NAYA-100-1`.
 |---|---|
 | BLE SoC | **Nordic nRF52811** (functional evidence: FCC 125 kbps S=8 coded-PHY tests pass; the nRF52810 lacks it. Marking reads `N5281?/CKAAD0/2301ME`) |
 | USB MCU | **Unknown 2nd chip** — the nRF has no USB; halves expose CDC+HID; FW images are 226–360 KB ≫ 192 KB nRF flash |
-| Boards | `Create_L_KB_20250220_V13` / `Create_R_KB_20250221_V13` (V0 `20230323` in early photos) |
+| Boards | `Create_L_KB_20250220_V13` / `Create_R_KB_20250221_V13` (filing exhibit shows **V11** 20250220; live unit rev may differ) |
 | Switches | Kailh CPG-1232 low-profile |
 | Base cells | FH301217 3.7 V **50 mAh** — hot-swap buffers, not the runtime source |
 | Antenna | Dongguan Boen RF0400A PCB, 0.8 dBi |

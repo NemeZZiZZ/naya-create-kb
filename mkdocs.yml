@@ -40,6 +40,7 @@ nav:
       - Hardware deep dive: device/hardware.md
       - Power architecture: device/power.md
       - Official manual claims: device/manual.md
+      - Exhibit inventory: device/exhibits.md
   - Wire protocol:
       - Transport & framing: protocol/transport.md
       - Command map: protocol/commands.md
