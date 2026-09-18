@@ -48,5 +48,5 @@ A minimal ZMK build (keys + basic split, no modules, no per-key RGB
 effects) is **conceivable** for someone with nRF/Zephyr board-bring-up
 experience and a SWD probe. A full-featured port (modules, LED engine,
 power management) requires reverse-engineering several undocumented
-subsystems first. Start with the [disassembly](disassembly/index.md)
+subsystems first. Start with the [disassembly](../disassembly/index.md)
 archive and the [command map](../protocol/commands.md).
