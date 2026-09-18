@@ -39,6 +39,7 @@ nav:
       - Overview & specs: device/index.md
       - Hardware deep dive: device/hardware.md
       - Power architecture: device/power.md
+      - Official manual claims: device/manual.md
   - Wire protocol:
       - Transport & framing: protocol/transport.md
       - Command map: protocol/commands.md
@@ -53,6 +54,7 @@ nav:
       - Bluetooth & GATT pipe: connectivity/ble.md
   - Firmware:
       - Bootloader & MCUBoot: firmware/bootloader.md
+      - Version inventory: firmware/versions.md
       - Signing keys: firmware/signing.md
   - Host software:
       - NayaFlow / NayaCore: software/nayaflow.md

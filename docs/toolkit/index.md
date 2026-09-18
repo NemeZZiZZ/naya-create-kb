@@ -25,5 +25,10 @@ halves awake, dry-run default everywhere, `--apply` writes.
 | `interposer.c` | macOS `DYLD_INSERT_LIBRARIES` tap logging NayaCore's serial I/O (needs a re-signed clone — hardened runtime strips `DYLD_*`) |
 
 Recipes: [Python](python.md) · [JS](javascript.md).
+
+Raw wire sources behind many findings: `research/captures/` in the RE
+repo (5 raw serial logs: `cdc-capture1.log`,
+`capture2`/`capture2-remap`, `capture3`, `capture5-settings-flash` —
+1–3 MB each; `.bin` slot is empty).
 DANGER list (never send): `ee/10be`, `ee/10ae`, `fa/1002`, `fa/1006`,
 `clear_bonds`, `mcuboot_reset`, replayed `fe/100a` bytes.
