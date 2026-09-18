@@ -1,0 +1,70 @@
+site_name: Naya Create — Open Knowledge Base
+site_description: Reverse-engineered hardware, protocol, storage and software reference for the Naya Create split keyboard.
+site_author: Community RE
+repo_url: https://github.com/NemeZZiZZ/naya-create-kb
+
+theme:
+  name: material
+  palette:
+    - scheme: slate        # dark theme, always on
+      primary: blue-grey
+      accent: amber
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+
+markdown_extensions:
+  - tables
+  - fenced_code
+  - codehilite:
+      guess_lang: false
+  - admonition
+  - toc:
+      permalink: true
+  - attr_list
+  - md_in_html
+
+plugins:
+  - search
+
+nav:
+  - Home: index.md
+  - Device:
+      - Overview & specs: device/index.md
+      - Hardware deep dive: device/hardware.md
+      - Power architecture: device/power.md
+  - Wire protocol:
+      - Transport & framing: protocol/transport.md
+      - Command map: protocol/commands.md
+      - Keymap records: protocol/keymap.md
+      - LED subsystem: protocol/led.md
+      - Settings & behavior: protocol/settings.md
+      - Modules on the wire: protocol/modules.md
+  - Storage:
+      - LittleFS & NVS: storage/littlefs.md
+      - Factory reset (30/10ca): storage/factory-reset.md
+  - Connectivity:
+      - Bluetooth & GATT pipe: connectivity/ble.md
+  - Firmware:
+      - Bootloader & MCUBoot: firmware/bootloader.md
+      - Signing keys: firmware/signing.md
+  - Host software:
+      - NayaFlow / NayaCore: software/nayaflow.md
+      - RPC & ZMQ bridge: software/rpc-zmq.md
+      - App data & backups: software/app-data.md
+  - Disassembly:
+      - Provenance & method: disassembly/index.md
+      - Key functions: disassembly/functions.md
+      - Host-side maps: disassembly/host-maps.md
+  - Toolkit:
+      - Overview: toolkit/index.md
+      - Python recipes: toolkit/python.md
+      - Web/JS recipes: toolkit/javascript.md
+  - Recovery cookbook: recovery.md
+  - Glossary: glossary.md
