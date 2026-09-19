@@ -56,12 +56,18 @@ T10 format:
 
 A writer must emit primary + shadow and set `4b=02`, exactly like
 stock (see `toolkit/naya-t10-spike.py` in the RE repo; live verdict
-pending).
+2026-09-18: SPIKE OK — full set accepted, readback identical, restore
+verified).
 
 ## Write constraints
 
-- **Same-length writes apply; length-changing rewrites (7 B↔11 B) are
-  silently ignored** — the report lists diverged KKs. Plan writes accordingly.
+- **Length-changing writes apply** (live-proven 2026-09-18/19: T01 7 B ↔ T10
+  set 27 B + 10 B shadow + tail, both directions readback-verified via plain
+  `30/1004`). An earlier "same-length rule" claim (7 B↔11 B silently ignored)
+  was a host-side bug of the early client, not a device rule — retracted.
+  When downgrading a T10 key back to a plain record, also rewrite the shadow
+  slot `KK+0x52` to the 3 B filler (`[KK+0x52, 00, 00]`) or the stale shadow
+  keeps reporting the old Double Tap / Tap+Hold slots.
 - Writes persist with `30/1004` alone (RAM + NVS). Never replay
   `fe/100a` bytes.
 - Layer sizes (healthy board): L0 ≈ 789 B, L1 ≈ 636 B, L2 ≈ 660 B
