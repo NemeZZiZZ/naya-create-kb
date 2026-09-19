@@ -36,7 +36,7 @@ fw   = ses.cmd(0xFE, 0x10, 0x02, b"")            # fe/1002 → 00 00 03 29 00 38
 layer0 = ses.read_layer(0)                        # 30/1003 multipart, both parts
 ```
 
-## Writes (same-length only!)
+## Writes
 
 ```python
 # key write, layer-aware ACK (accept 00 00 OR 00 <layer>)
