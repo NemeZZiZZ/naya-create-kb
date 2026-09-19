@@ -42,10 +42,13 @@ T-table as keys; `[SLOT, 07, 00]` when empty), no prefix. All changed
 slots concatenated into likely ONE frame. Guards: skip bit31-set and
 ≥ maxSlots indices.
 
-Alternative live hypothesis under test: 30/1004-style frame with
-**c1=`0x0b`**, params `[00, SLOT] + record`, ACK first byte `0x00`
-(fallback `0x0c`). Same-length rule assumed. **OPEN until a live
-module-gesture flash confirms the `01,01` bytes.**
+Write format — live verdict 2026-09-18: SPIKE OK. `30/100c` with **c1=`0x0c`**,
+params `[00, LAYER] + full slot record` (slot byte = record byte 0; the params
+carry the LAYER, not the slot — sending `[00, SLOT]` lands in the wrong layer).
+ACK `00 <layer>` (layer echo) + readback-compare passes both ways; restore
+verified byte-identical. c1=`0x0b` parse-ACKs (slot-table echo) WITHOUT applying
+— never use. Length-changing module writes apply (3 B→4 B→3 B round-trip clean).
+Slot↔gesture table live-proven (see `toolkit/naya-modules-spike.py`).
 
 ## Layout-side discovery
 
