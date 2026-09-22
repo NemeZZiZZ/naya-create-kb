@@ -46,6 +46,18 @@ No reboot needed for CDC.
    separate op), but if halves unlink, re-pair via NayaFlow.
 3. ED defaults must be re-set after (idle timeouts persist in the
    snapshot; max-brightness ceiling has no GET — re-send 100).
+4. **The layer-LIST store is wiped too** (live-proven 2×, 2026-09-19/22):
+   keymap+LED snapshot restore is NOT enough — hold-to-layer dies (a
+   held MO key just prints the base letter) and layer toggles misbehave.
+   A stock NayaFlow flash re-adds the layer list (`ADD_DEFAULT_DATA` in
+   `doClearAllDataOperations`). Its "Failed verify written data" error
+   is reproducible post-10ca and benign — verify by layer switching, not
+   by the app's success dialog.
+5. **The stock flash reverts per-key customs** (observed both times:
+   exactly 4 L0 records overwritten with its stale profile). Re-apply
+   custom records afterwards via surgical `30/1004`
+   (`[00, layer] + record` — see [keymap](../protocol/keymap.md)) or the
+   open web client's Import → Flash.
 
 After success: re-dump the device, restore the profile, verify LED
 revival, re-apply the [ff-phase](../protocol/led.md#the-dark-saga-what-we-learned).

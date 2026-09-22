@@ -26,6 +26,14 @@ ED to the right (especially RESUME/RGB phases) can park its render
 with modules going dark too. Right still types. Try minimal ON+BRT
 on the right port (`dst 0x51`); else cold USB reset of that half.
 
+2026-09-22 relapse data: an ff-phase ladder fired **via the right port**
+(explicit `dst 0x51`, 8/9 ACKs from src aa51) parked the right half AND
+its module fully dark; it did not relight after a stock NayaFlow flash.
+Earlier the same ff-ladder fired **via the left port** had relit the
+right half once (mechanism unclear — the script is `dst 0x50`-shaped).
+Treat right-side ff writes as risky; left-port ff first, cold boot next,
+`30/10ca` as the last resort.
+
 ## `30/1001` / `30/1003` answer error `16 00`
 
 Empty store — expected right after a `30/10ca` format. Restore the
@@ -57,6 +65,14 @@ further dim with no further writes; `SCANMODE=0`+`BRT=100`+`ON` then
 had no visible effect. Brightness keys inverted (max→very low) was
 seen earlier. If you reproduce a trigger (idle minutes? PC sleep?
 dock/undock?), record it — 2–3 correlations pin the wake-path suspect.
+
+2026-09-22 wire probe (`naya-brt-wrap-spike.py`): DEC steps clamp
+honestly — 50→…→10→**0**, and 0 is an OFF-park: `ADJ_BRT` upward does
+NOT relight. So the brightness **wrap** seen in stock NayaFlow
+(…10→100→…→0 / 0→100→10…) is host-side value arithmetic interacting
+with the OFF-park, not a device render wrap. The park itself survives
+`ee/10ce`; relight needs the ff-phase ladder (or a full dark-saga
+recovery).
 
 ## Never send
 

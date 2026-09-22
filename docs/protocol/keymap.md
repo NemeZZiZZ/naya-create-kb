@@ -70,5 +70,10 @@ verified).
   keeps reporting the old Double Tap / Tap+Hold slots.
 - Writes persist with `30/1004` alone (RAM + NVS). Never replay
   `fe/100a` bytes.
+- **`30/1004` params are `[00, layer] + record`** — the layer byte is
+  mandatory. With the byte missing the device answers a misleading
+  `19 KK` ACK (status 0x19 + KK echo) and does NOT apply the write
+  (live 2026-09-22; survives `ee/10ce`). If a batch of writes "ACKs
+  but changes nothing", check the params prefix first.
 - Layer sizes (healthy board): L0 ≈ 789 B, L1 ≈ 636 B, L2 ≈ 660 B
   (exact sizes shift with customs; byte math must close every time).
