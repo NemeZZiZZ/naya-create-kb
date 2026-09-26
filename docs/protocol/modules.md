@@ -55,3 +55,25 @@ Slot↔gesture table live-proven (see `toolkit/naya-modules-spike.py`).
 Module enablement is per-half in the keymap profile: after re-seating,
 a module shows DISABLED in NayaFlow layout until the profile is
 re-flashed. A module on a disabled half shows only its indicator LED.
+
+## Settings tab (pointer speed etc.) — host-side only
+
+The NayaFlow module **Settings** tab (pointer speed, pointer
+acceleration, scroll speed, dial detection threshold, dial tracking
+speed, rotation/translation sensitivity, response curve — the exact
+vocabulary lives in NayaCore strings) does **not** map to any wire
+verb. Evidence:
+
+- NayaFlow's host SQLite has a dedicated `module_settings` table
+  (`correlation_id`, `value`, `type`) — the values persist in the
+  **app database**, not on the device.
+- CDC captures during Settings-tab changes show no `30/`, `de/`, or
+  `ed/` frames — nothing is sent to the keyboard.
+- The device-side module config store (`30/100b`/`30/100c`) carries
+  only the 9 gesture slots per layer (proven live 2026-09-18) — no
+  sensitivity fields exist in that format.
+
+Practical consequences: module settings are **APP ONLY** (lost on app
+data reset, not portable across hosts), and no alternative client can
+read or change them over the wire. The wire-persisted module surface =
+gesture bindings (`30/100c`) + dock telemetry (`de/1001/1008/100b`).
