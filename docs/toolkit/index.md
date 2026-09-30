@@ -31,4 +31,4 @@ repo (5 raw serial logs: `cdc-capture1.log`,
 `capture2`/`capture2-remap`, `capture3`, `capture5-settings-flash` —
 1–3 MB each; `.bin` slot is empty).
 DANGER list (never send): `ee/10be`, `ee/10ae`, `fa/1002`, `fa/1006`,
-`clear_bonds`, `mcuboot_reset`, replayed `fe/100a` bytes.
+`clear_bonds`, `mcuboot_reset`.

@@ -18,7 +18,13 @@ so a future porter starts from facts, not guesses.
 
 ![Dongle back: nRF52840 with labeled SWDIO/TP1/TP2 test points (FCC exhibit)](../assets/fcc/dongle-back.jpg)
 - **Stock images are carved** and inventoried (see
-  [Version inventory](versions.md)) — there is a return path via SWD.
+  [Version inventory](versions.md)) — a return path via SWD *was* assumed.
+  Correction (cross-source, 2026-10-01): images are **AES-128-CTR
+  encrypted with a per-image key wrapped to a key held only inside the
+  bootloader**; an SWD mass erase destroys that key with it. Carved stock
+  images can be re-flashed through the signed bootloader's own SMP path,
+  but after erasing the SoC, SWD-reflashing carved images does **not**
+  restore a bootable stock board — treat SWD erase as one-way.
 - **Full behavior reference:** the entire wire protocol (keymap
   records, LED maps, settings, module config) is documented in this
   KB — the porter knows exactly what the stock FW does.

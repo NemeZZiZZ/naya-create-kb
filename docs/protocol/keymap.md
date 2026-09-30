@@ -66,8 +66,20 @@ verified).
   `30/1004`). An earlier "same-length rule" claim (7 B↔11 B silently ignored)
   was a host-side bug of the early client, not a device rule — retracted.
   When downgrading a T10 key back to a plain record, also rewrite the shadow
-  slot `KK+0x52` to the 3 B filler (`[KK+0x52, 00, 00]`) or the stale shadow
-  keeps reporting the old Double Tap / Tap+Hold slots.
+  slot `KK+0x52` to the 3 B filler or the stale shadow
+  keeps reporting the old Double Tap / Tap+Hold slots. **Prefer the NONE
+  filler `[KK+0x52, 07, 00]`** (type 07 empty): our original `00 00`
+  filler is a zero-length type-`00` *bluetooth* record that decodes as
+  BT_CLEAR — an untested argument from Create-knowledge-base (2026-10-01);
+  the device compacts both forms and our live downgrade tests passed with
+  `00 00`, but `07 00` avoids writing a misleading record type.
+- **Hold-tap records carry per-record extras** (cross-source 2026-10-01):
+  besides the tapping term (u16 LE, default `c8 00` = 200 ms), the T03/T10
+  body holds a **flavor byte** (0=hold-preferred, 1=balanced,
+  2=tap-preferred, 3=tap-unless-interrupted inferred; NayaFlow "Balanced"
+  writes `00`) and a second flag byte in the hold quad — measured `2` on a
+  NayaFlow-written T03. Writers should **preserve unknown bytes verbatim**
+  rather than zero them (see protocol/settings.md §Typing behavior).
 - Writes persist with `30/1004` alone (RAM + NVS). Never replay
   `fe/100a` bytes.
 - **`30/1004` params are `[00, layer] + record`** — the layer byte is

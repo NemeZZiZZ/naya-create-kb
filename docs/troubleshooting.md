@@ -99,10 +99,13 @@ Always send the full documented form (`[target, value]`, see
 ## Never send (DANGER list)
 
 `ee/10be` (DFU reset), `ee/10ae` (MCUBoot reset), `fa/1002`,
-`fa/1006`, `clear_bonds`, `mcuboot_reset`, replayed `fe/100a` bytes.
+`fa/1006`, `clear_bonds`, `mcuboot_reset`.
 Background: the `fe/100a` commit is **unnecessary** — our writer is
-handshake → `30/1004` → readback, no commit. Replaying sniffed
-`fe/100a` frames wedged the state machine (proven live). `ee/10ce`
+handshake → `30/1004` → readback, no commit. (Replayed `fe/100a`
+frames were removed from this list 2026-10-01: the command is a plain
+timeouts write — params echo the payload verbatim — and an independent
+two-board 3.41.0 measurement observed no wedge; the real cost of a
+replay is silently restoring stale timeout values.) `ee/10ce`
 (NORMAL RESET) is the safe one: ACK, USB drops ~0.13 s, node back
 ~0.9 s.
 

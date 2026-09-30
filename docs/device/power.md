@@ -42,4 +42,4 @@ blue pack and the copper Qi coil (FCC internal photos).*
 | Base rail (`fe/1006`) | ~4090 mV, rises on USB charge |
 | Module FW / base FW | 0.2.3.3 / 0.3.41.0 |
 | Base cells | 50 mAh buffers only |
-| Module packs | ~600–1000 mAh (the real batteries) |
+| Module packs | ~600–1000 mAh (the real batteries; per-module attribution partly OPEN — Tune `FH 202030` 1000 mAh is settled; `FH364046` 700 mAh and Track `QS801630` 1S2P 600 mAh are disputed cross-source, see exhibits.md) |

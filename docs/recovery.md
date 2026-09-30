@@ -77,6 +77,12 @@ recovery).
 ## Never send
 
 `ee/10be`, `ee/10ae` (DFU/MCUBoot resets), `fa/1002`, `fa/1006`
-(format/erase chip), text `clear_bonds` / `mcuboot_reset`, replayed
-`fe/100a` bytes from another session, 1-byte ED payloads (they write
+(format/erase chip), text `clear_bonds` / `mcuboot_reset`, 1-byte ED payloads (they write
 zeros to NVS), oversized single `30/100e` frames (wedge the parser).
+
+> `fe/100a` replay downgraded 2026-10-01 from the danger list: it is a
+> plain timeouts write (params echo the payload verbatim), and an
+> independent two-board measurement on 3.41.0 (2026-09-16..21,
+> Create-knowledge-base) observed no wedge. The residual hazard is
+> *semantic*: replayed bytes silently restore stale timeout values.
+> Send a fresh `fe/100a` from live state instead of replaying captures.

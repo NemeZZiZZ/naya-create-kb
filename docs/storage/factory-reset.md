@@ -15,7 +15,12 @@ _remapClearFlash + _handleSpiflashFormatPartition +
 _handleRemapClearAllDataResponse`) but the ZMQ event whitelist (15
 events) has **no `clear_all_data` slot** — sending it over the
 RPC↔ZMQ bridge returns `Unknown command event: invalid_command_event`
-(Error 4). Direct-wire is the only path in this build.
+(Error 4). Direct-wire is the only path **from third-party hosts**.
+Correction (cross-source, 2026-10-01): NayaFlow's own UI *does* reach
+this chain — its Danger Zone "Clear all keymap data" sends the
+`clear_data` ZMQ event (id 5, inside the whitelist; our static read
+missed the mapping), dialog-less. So the wire is the only path for
+non-NayaFlow hosts, not the only path overall.
 
 ## Firing it
 

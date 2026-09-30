@@ -57,6 +57,15 @@ Examples (left half):
 - Key write: `30/1004` params `[00, layer, KK] + record` → ACK payload
   `00 00` (L0) — see [ACK semantics](#ack-semantics).
 
+**Checksum-read-as-data trap** (cross-source, 2026-10-01): several reply
+bytes that were published as data are actually the XOR checksum — the
+trailing `38` of `fe/1002` (`00 00 03 29 00 38` is really
+`00 00 03 29 00` + CRC `38`), the third byte of the `be/100f` version
+reply, and the fourth byte of `de/1001` dock replies. Likewise the
+commonly quoted 43/72/41/250 B sizes are **whole-frame** sizes, not
+payload sizes (subtract header/CRC/footer). When a field refuses to
+parse, check whether you are reading the CRC as data first.
+
 ## Multi-part reads
 
 `30/1003` (keymap) and `30/100d`/`30/100b` read with params
@@ -85,8 +94,11 @@ more-flag (`01` = more parts, `00` = last), payload byte1 = **layer echo**.
 ## What never to send
 
 `ee/10be` + `ee/10ae` (DFU/MCUBoot resets), `fa/1002`, `fa/1006`,
-text commands `clear_bonds` / `mcuboot_reset`. And **never replay
-captured `fe/100a` bytes across sessions** — stale commits wedge the
-state machine (a power reboot recovers, but don't).
+text commands `clear_bonds` / `mcuboot_reset`. **Don't replay captured
+`fe/100a` bytes across sessions** — not because they wedge (an
+independent two-board 3.41.0 measurement saw no wedge; the command is
+a plain timeouts write whose params echo the payload), but because a
+replay silently restores stale timeout values. Send a fresh
+`fe/100a` instead.
 
 See also: [command map](commands.md) · [recovery cookbook](../recovery.md).

@@ -79,7 +79,7 @@ MCUBoot through the base** (`MCUBootWorker_CreateLeft_PortOne/Two_Module`).
 | Touch frontend | SGMicro `4T523DF` |
 | Charging | Qi receiver Maxic MT5705 (charging only — no data) |
 | Link to base | **Wired pogo pins** (VBUS/USB on test pads) — no radio in modules |
-| Power | Bidirectional (see [power](power.md)); packs ~600–1000 mAh (Track QS801630 1S2P 600 mAh, Touch FH202030 1000 mAh class) |
+| Power | Bidirectional (see [power](power.md)); packs ~600–1000 mAh. Cross-source (2026-10-01): Tune `FH 202030` 1000 mAh, Touch `FH364046/45` 700 mAh, Track `QS801630` 1S2P 600 mAh — module attribution for `FH364046` disputed vs our exhibit caption, OPEN (see exhibits.md) |
 | Module FW | **0.2.3.3** (read live via `de/1008`) |
 | Extras | Coin vibration motor (haptics), halo LED rings, dock magnets |
 | Test pads | SWCLK / BOOT0 / BOOT1 broken out |

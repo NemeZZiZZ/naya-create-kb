@@ -28,9 +28,19 @@ Tap–Preferred / Tap–Unless Interrupted (“how a hold-tap key resolves
 when interrupted”) — and **Tapping Term is a separate slider**
 (200 ms default, 10–1000 ms range). An earlier note claiming flavor
 presets “Balanced/Fast/Deliberate ≈ 200/150/280 ms” was wrong and is
-retracted (that conflation never existed in the NayaFlow UI). Flavor's
-wire encoding is **OPEN** — candidate: T10 record bits; a flavor-diff
-(keymap dumps at each flavor setting) is folded into the T10 live spike.
+retracted (that conflation never existed in the NayaFlow UI).
+
+**Flavor wire encoding (cross-source, 2026-10-01).** Create-knowledge-base
+measured the flavor by a typing test: the flavor byte rides **inside
+every hold-tap record** (no profile header). Mapping: `0` =
+hold-preferred, `1` = balanced, `2` = tap-preferred, `3` =
+tap-unless-interrupted (inferred; the measurement covered 0–2).
+NayaFlow's “Balanced” default writes `00` (= hold-preferred) — the UI
+label and the byte disagree. Our own NayaFlow-written T03 record for Z
+carries `00` in the flavor position, consistent with that finding.
+We have NOT re-verified the semantics on our hardware (the byte is
+preserved verbatim by our tooling; a wrong pick is undone by the next
+behavior write).
 
 ## LED-adjacent settings
 

@@ -29,7 +29,7 @@ hero shots. Source files: `research/fcc/` in the companion repo.
 |---|---|---|
 | Half buffer cell | `FH301217 3.7 V 50 mAh 0.185 Wh` | CRR/CRL teardowns |
 | Tune module | `FH 202030 3.7 V 1000 mAh 3.7 Wh` (20250603) | CRL-view-4 |
-| Track module | `FH364046 3.7 V 700 mAh 2.59 Wh` (20250611) | CRL-view-5 |
+| `FH364046 3.7 V 700 mAh 2.59 Wh` (20250611) | CRL-view-5 | **OPEN — module attribution disputed.** Our exhibit caption (CRL-view-5) sits in the Track teardown; Create-knowledge-base cross-source (2026-10-01) attributes FH364046/45 to the **Touch** module (700 mAh) and the **Track** pack to `QS801630 1S2P 600 mAh` (a two-cell pack, no FH label seen by them). Until a fresh exhibit re-read settles it, treat this caption as disputed. |
 | Smallest puck | `ICR … 300 mAh 3.7 V 1.11 Wh` (cylindrical) | CRL-view-6 |
 
 ## Test points (labeled)
